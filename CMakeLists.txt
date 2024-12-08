@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(imgui)
+project(imgui_cmake)
 
 file(GLOB SRC_FILES imgui/*.cpp)
 file(GLOB HEADER_FILES imgui/*.h)
@@ -19,8 +19,8 @@ if (IMGUI_GLFW_BACKEND)
 	set(HEADER_FILES ${GLFW_HEADER_FILE} ${HEADER_FILES})
 endif()
 
-add_library(imgui ${SRC_FILES} ${HEADER_FILES})
+add_library(imgui_cmake ${SRC_FILES} ${HEADER_FILES})
 
-target_include_directories(imgui
+target_include_directories(imgui_cmake
 	PUBLIC ./imgui/
 )
