@@ -29,7 +29,7 @@ target_include_directories(imgui_cmake
 if (IMGUI_VULKAN_BACKEND)
 	if (IMGUI_IMPL_VULKAN_USE_LOADER)
 		target_compile_definitions(imgui_cmake
-			IMGUI_IMPL_VULKAN_USE_LOADER=1
+			PUBLIC IMGUI_IMPL_VULKAN_USE_LOADER=1
 		)
 	endif()
 endif()
