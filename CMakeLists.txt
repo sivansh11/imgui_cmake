@@ -19,9 +19,15 @@ if (IMGUI_GLFW_BACKEND)
 	set(HEADER_FILES ${GLFW_HEADER_FILE} ${HEADER_FILES})
 endif()
 
-add_library(imgui_cmake ${SRC_FILES} ${HEADER_FILES})
+add_library(imgui_cmake INTERFACE ${SRC_FILES} ${HEADER_FILES})
 
 target_include_directories(imgui_cmake
 	PRIVATE ./imgui/
 	PUBLIC ./
 )
+
+if (IMGUI_GLFW_BACKEND)
+	if (NOT IMGUI_GLFW_PATH)
+		message(FATAL_ERROR "GLFW backend required but path not specified")
+	endif()
+endif()
