@@ -19,7 +19,7 @@ if (IMGUI_GLFW_BACKEND)
 	set(HEADER_FILES ${GLFW_HEADER_FILE} ${HEADER_FILES})
 endif()
 
-add_library(imgui_cmake INTERFACE ${SRC_FILES} ${HEADER_FILES})
+add_library(imgui_cmake ${SRC_FILES} ${HEADER_FILES})
 
 target_include_directories(imgui_cmake
 	PRIVATE ./imgui/
