@@ -4,6 +4,18 @@ project(imgui_cmake)
 
 file(GLOB SRC_FILES imgui/*.cpp)
 file(GLOB HEADER_FILES imgui/*.h)
+include(FetchContent)
+
+set(fetchcontent_quiet false)
+
+FetchContent_Declare(
+	imgui
+	GIT_REPOSITORY https://github.com/ocornut/imgui.git
+	GIT_TAG docking
+)
+if (NOT imgui_POPULATED)
+	FetchContent_MakeAvailable(imgui)
+endif()
 
 if (IMGUI_VULKAN_BACKEND)
 	set(VULKAN_SRC_FILE "./imgui/backends/imgui_impl_vulkan.cpp")
