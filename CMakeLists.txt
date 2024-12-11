@@ -35,8 +35,7 @@ endif()
 add_library(imgui_cmake ${SRC_FILES} ${HEADER_FILES})
 
 target_include_directories(imgui_cmake
-	PUBLIC ./${imgui_SOURCE_DIR}/
-	PUBLIC ./
+	PUBLIC ${imgui_SOURCE_DIR}/
 )
 
 if (IMGUI_VULKAN_BACKEND)
