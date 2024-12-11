@@ -22,7 +22,7 @@ endif()
 add_library(imgui_cmake ${SRC_FILES} ${HEADER_FILES})
 
 target_include_directories(imgui_cmake
-	PRIVATE ./imgui/
+	PUBLIC ./imgui/
 	PUBLIC ./
 )
 
