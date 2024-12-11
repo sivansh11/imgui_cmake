@@ -26,6 +26,14 @@ target_include_directories(imgui_cmake
 	PUBLIC ./
 )
 
+if (IMGUI_VULKAN_BACKEND)
+	if (IMGUI_IMPL_VULKAN_USE_LOADER)
+		target_compile_definitions(imgui_cmake
+			IMGUI_IMPL_VULKAN_USE_LOADER=1
+		)
+	endif()
+endif()
+
 if (IMGUI_GLFW_BACKEND)
 	if (NOT IMGUI_GLFW_PATH)
 		message(FATAL_ERROR "GLFW backend required but path not specified")
