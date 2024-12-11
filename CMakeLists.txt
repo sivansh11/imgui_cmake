@@ -31,6 +31,6 @@ if (IMGUI_GLFW_BACKEND)
 		message(FATAL_ERROR "GLFW backend required but path not specified")
 	endif()
 	target_include_directories(imgui_cmake
-		PRIVATE ${IMGUI_GLFW_BACKEND}
+		PRIVATE ${IMGUI_GLFW_PATH}
 	)
 endif()
