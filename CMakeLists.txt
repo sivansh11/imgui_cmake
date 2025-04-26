@@ -38,6 +38,12 @@ target_include_directories(imgui_cmake
 	PUBLIC ${imgui_SOURCE_DIR}/
 )
 
+if (IMGUI_IMPL_VULKAN_USE_VOLK)
+	target_link_libraries(imgui_cmake
+  		PRIVATE volk
+	)
+endif()
+
 if (IMGUI_VULKAN_BACKEND)
 	if (IMGUI_IMPL_VULKAN_USE_LOADER)
 		target_compile_definitions(imgui_cmake
