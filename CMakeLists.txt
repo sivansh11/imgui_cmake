@@ -52,6 +52,7 @@ if (IMGUI_VULKAN_BACKEND)
  	  if (IMGUI_IMPL_VULKAN_USE_VOLK)
     		target_compile_definitions(imgui_cmake
       			PUBLIC IMGUI_IMPL_VULKAN_USE_VOLK=1
+	 	)
 	  endif()
 endif()
 
