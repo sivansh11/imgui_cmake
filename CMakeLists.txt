@@ -9,7 +9,7 @@ set(fetchcontent_quiet False)
 FetchContent_Declare(
 	imgui
 	GIT_REPOSITORY https://github.com/ocornut/imgui.git
-	GIT_TAG docking
+	GIT_TAG ab760992adb66258e65f78bb67380a00113e8996
 )
 if (NOT imgui_POPULATED)
 	FetchContent_MakeAvailable(imgui)
