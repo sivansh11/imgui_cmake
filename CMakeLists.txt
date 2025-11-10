@@ -19,6 +19,7 @@ file(GLOB SRC_FILES ${imgui_SOURCE_DIR}/*.cpp)
 file(GLOB HEADER_FILES ${imgui_SOURCE_DIR}/*.h)
 
 if (IMGUI_VULKAN_BACKEND)
+  find_package(Vulkan REQUIRED)
 	set(VULKAN_SRC_FILE "${imgui_SOURCE_DIR}/backends/imgui_impl_vulkan.cpp")
 	set(VULKAN_HEADER_FILE "${imgui_SOURCE_DIR}/backends/imgui_impl_vulkan.h")
 	set(SRC_FILES ${VULKAN_SRC_FILE} ${SRC_FILES})
@@ -60,6 +61,9 @@ if (IMGUI_VULKAN_BACKEND)
     			PUBLIC IMGUI_IMPL_VULKAN_USE_VOLK=1
 	)
 	endif()
+  target_link_libraries(imgui_cmake
+    PUBLIC Vulkan::Headers
+  )
 endif()
 
 if (IMGUI_GLFW_BACKEND)
