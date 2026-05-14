@@ -18,6 +18,16 @@ endif()
 file(GLOB SRC_FILES ${imgui_SOURCE_DIR}/*.cpp)
 file(GLOB HEADER_FILES ${imgui_SOURCE_DIR}/*.h)
 
+if (IMGUI_OPENGL3_BACKEND)
+  find_package(Vulkan REQUIRED)
+	set(OPENGL3_SRC_FILE "${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp")
+	set(OPENGL3_HEADER_FILE "${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.h"
+                          "${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3_loader.h"
+  )
+	set(SRC_FILES ${OPENGL3_SRC_FILE} ${SRC_FILES})
+	set(HEADER_FILES ${OPENGL3_HEADER_FILE} ${HEADER_FILES})
+endif()
+
 if (IMGUI_VULKAN_BACKEND)
   find_package(Vulkan REQUIRED)
 	set(VULKAN_SRC_FILE "${imgui_SOURCE_DIR}/backends/imgui_impl_vulkan.cpp")
