@@ -18,6 +18,9 @@ endif()
 file(GLOB SRC_FILES ${imgui_SOURCE_DIR}/*.cpp)
 file(GLOB HEADER_FILES ${imgui_SOURCE_DIR}/*.h)
 
+file(GLOB_RECURSE MISC_CPP_SRC_FILES ${imgui_SOURCE_DIR}/misc/cpp/*.cpp)
+file(GLOB_RECURSE MISC_CPP_HEADER_FILES ${imgui_SOURCE_DIR}/misc/cpp/*.h)
+
 if (IMGUI_OPENGL3_BACKEND)
   find_package(Vulkan REQUIRED)
 	set(OPENGL3_SRC_FILE "${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp")
@@ -58,7 +61,7 @@ if (IMGUI_SDL3_WINDOW_BACKEND)
   set(HEADER_FILES ${SDL3_WINDOW_HEADER_FILE} ${HEADER_FILES})
 endif()
 
-add_library(imgui_cmake ${SRC_FILES} ${HEADER_FILES})
+add_library(imgui_cmake ${SRC_FILES} ${HEADER_FILES} ${MISC_CPP_SRC_FILES} ${MISC_CPP_HEADER_FILES})
 
 target_include_directories(imgui_cmake
 	PUBLIC ${imgui_SOURCE_DIR}/
