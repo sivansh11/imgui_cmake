@@ -22,7 +22,7 @@ file(GLOB_RECURSE MISC_CPP_SRC_FILES ${imgui_SOURCE_DIR}/misc/cpp/*.cpp)
 file(GLOB_RECURSE MISC_CPP_HEADER_FILES ${imgui_SOURCE_DIR}/misc/cpp/*.h)
 
 if (IMGUI_OPENGL3_BACKEND)
-  find_package(Vulkan REQUIRED)
+  find_package(OpenGL REQUIRED)
 	set(OPENGL3_SRC_FILE "${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp")
 	set(OPENGL3_HEADER_FILE "${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.h"
                           "${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3_loader.h"
