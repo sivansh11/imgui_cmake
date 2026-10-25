@@ -67,6 +67,12 @@ target_include_directories(imgui_cmake
 	PUBLIC ${imgui_SOURCE_DIR}/
 )
 
+if (IMGUI_OPENGL3_BACKEND)
+	target_link_libraries(imgui_cmake
+      PRIVATE OpenGL
+	)
+endif()
+
 if (IMGUI_IMPL_VULKAN_USE_VOLK)
 	target_link_libraries(imgui_cmake
   		PRIVATE volk
